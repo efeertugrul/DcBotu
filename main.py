@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import os
+import re
+
 
 client = commands.Bot(command_prefix=".")
 token = os.getenv("DISCORD_BOT_TOKEN")
@@ -18,9 +20,19 @@ async def ping(ctx) :
 async def whoami(ctx) :
     await ctx.send(f"You are {ctx.message.author.name}")
 
+#@client.command()
+#async def clear(ctx, amount=3) :
+#    await ctx.channel.purge(limit=amount)
+
 @client.command()
-async def clear(ctx, amount=3) :
-    await ctx.channel.purge(limit=amount)
+async def on_message(message):
+    matched = re.match("sa|s.a.|selamın aleyküm|Selamın aleyküm", message)
+    if bool(matched):
+        msg = 'who'.format(message)
+        await message.channel.send('go away lucas')
+    await bot.process_commands(message)
 
-
+    
+    
+   
 client.run(token)
