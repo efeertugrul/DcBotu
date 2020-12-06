@@ -30,7 +30,7 @@ async def on_message(message):
 	matched2 = re.match("TEKBİR!")
     if bool(matched):
         await message.channel.send('Aleyküm selam ya müslüman!)
-	elif bool(matched2):
+    elif bool(matched2):
 		await message.channel.send('ALLAHU EKBER!!!!')
     await bot.process_commands(message)
 
