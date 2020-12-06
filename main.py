@@ -24,15 +24,15 @@ async def whoami(ctx) :
 async def clear(ctx, amount=3) :
     await ctx.channel.purge(limit=amount)
 
-#@client.event()
-#async def on_message(message):
-#    matched = re.match("sa|s.a.|selamın aleyküm|Selamın aleyküm", message)
-#    matched2 = re.match("TEKBİR!", message)
-#    if bool(matched):
-#        await message.channel.send('Aleyküm selam ya müslüman!')
-#    elif bool(matched2):
-#        await message.channel.send('ALLAHU EKBER!!!!')
-#    await bot.process_commands(message)
+@client.event()
+async def on_message(message):
+    matched = re.match("sa|s.a.|selamın aleyküm|Selamın aleyküm", message)
+	matched2 = re.match("TEKBİR!", message)
+    if bool(matched):
+        await message.channel.send('Aleyküm selam ya müslüman!')
+    elif bool(matched2):
+        await message.channel.send('ALLAHU EKBER!!!!')
+    await bot.process_commands(message)
 
     
     
