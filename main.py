@@ -20,14 +20,14 @@ async def ping(ctx) :
 async def whoami(ctx) :
     await ctx.send(f"You are {ctx.message.author.name}")
 
-#@client.command()
-#async def clear(ctx, amount=3) :
-#    await ctx.channel.purge(limit=amount)
+@client.command()
+async def clear(ctx, amount=3) :
+    await ctx.channel.purge(limit=amount)
 
 @client.event()
 async def on_message(message):
     matched = re.match("sa|s.a.|selamın aleyküm|Selamın aleyküm", message)
-	matched2 = re.match("TEKBİR!")
+    matched2 = re.match("TEKBİR!", message)
     if bool(matched):
         await message.channel.send('Aleyküm selam ya müslüman!)
     elif bool(matched2):
