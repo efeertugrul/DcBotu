@@ -16,10 +16,8 @@ token = os.getenv("DISCORD_BOT_TOKEN")
 
 
 if token == None:
-    print("Za")
     f = open("token","r")
     token = f.readline()
-    print(token)
 else:
     print(token)
 
@@ -31,6 +29,8 @@ async def on_ready() :
 
 @client.command()
 async def seriat(ctx):
+    print("sth")
+    global seriatOn
     if seriatOn:
         seriatOn = False
         await ctx.send(f"Şeriatı kaldırdık!")
@@ -70,5 +70,5 @@ async def on_message(message):
 
     
     
-client.add_command(seriat)
+
 client.run(token)
