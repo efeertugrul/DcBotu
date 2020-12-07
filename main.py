@@ -27,7 +27,7 @@ async def clear(ctx, amount=3) :
 @client.event()
 async def on_message(message):
     matched = re.match("sa|s.a.|selamın aleyküm|Selamın aleyküm", message)
-	matched2 = re.match("TEKBİR!", message)
+    matched2 = re.match("TEKBİR!", message)
     if bool(matched):
         await message.channel.send('Aleyküm selam ya müslüman!')
     elif bool(matched2):
