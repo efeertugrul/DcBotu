@@ -10,7 +10,7 @@ def switch(value):
             2:'ilahi mi açtın mübarek?'}
     return cases[value]
 
-on = 1
+seriatOn = True
 client = commands.Bot(command_prefix=".")
 token = os.getenv("DISCORD_BOT_TOKEN")
 
@@ -31,10 +31,12 @@ async def on_ready() :
 
 @client.command()
 async def seriat(ctx):
-    if on == 1:
-        on = 0
+    if seriatOn:
+        seriatOn = False
+        await ctx.send(f"Şeriatı kaldırdık!")
     else:
-        on = 1
+        seriatOn = True
+        await ctx.send(f"Şeriat yükleniyor...")
 
 @client.command()
 async def ping(ctx) :
@@ -50,7 +52,7 @@ async def clear(ctx, amount=3) :
 
 @client.event
 async def on_message(message):
-    if on == 1:
+    if seriatOn:
         matchlist = ["s.a|sa|s.a.|selamın aleyküm|Selamın aleyküm", "TEKBİR|tekbir", "-p"]
 
         count = 0
