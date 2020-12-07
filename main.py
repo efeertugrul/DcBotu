@@ -70,5 +70,5 @@ async def on_message(message):
 
     
     
-   
+client.add_command(seriat)
 client.run(token)
